@@ -1,11 +1,11 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import connectDB from './DB/connectDB.js';
-import auth from './middlewares/auth.js';
+const express =require ('express');
+const dotenv =require('dotenv');
+const connectDB=require ('./DB/connectDB');
+// import auth from './middlewares/auth.js';
 
 // routes handlers
-import userHandler from './routes/usersRoute.js';
-import taskHandler from './routes/tasksRoute.js';
+const userHandler =require ('./routes/usersRoute');
+const taskHandler =require('./routes/tasksRoute.js');
 
 
 const app=express();
@@ -38,4 +38,6 @@ app.use('/api/task',taskHandler);
 // server PORT
 const PORT=process.env.PORT;
 
-app.listen(PORT,()=>{console.log(`Server is listening on PORT ${PORT}.....`)});
+const server = app.listen(PORT,()=>{console.log(`Server is listening on PORT ${PORT}.....`)});
+
+module.exports= server;

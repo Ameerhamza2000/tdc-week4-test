@@ -1,11 +1,11 @@
-import express from "express";
-import { userLogin, userSignup } from "../controllers/usersController.js";
+const express =require('express');
+const { userLogin, userSignup } =require('../controllers/usersController');
 // validation middleware
-import {loginValidation,signupValidation} from "../middlewares/inputValidation.js"
+const {loginValidation,signupValidation} =require('../middlewares/inputValidation');
 const router= express.Router();
 
 router.post('/signup',signupValidation,userSignup);
 
 router.post('/login',loginValidation,userLogin);
 
-export default router;
+module.exports= router;

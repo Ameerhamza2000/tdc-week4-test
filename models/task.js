@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+const {mongoose, Schema } =require ('mongoose');
 
 const taskSchema=new mongoose.Schema({
     "title": {type:String, required:true},
@@ -11,4 +11,4 @@ const taskSchema=new mongoose.Schema({
 const Task= mongoose.model('task',taskSchema);
 
 
-export default Task;
+module.exports= Task;

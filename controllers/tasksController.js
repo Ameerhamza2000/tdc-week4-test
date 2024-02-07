@@ -1,4 +1,4 @@
-import Task from "../models/task.js";
+const Task =require ('../models/task');
 
 // get all tasks that exist in db as a home which is visible to all users
 
@@ -131,4 +131,4 @@ const delteTask=async(req,res)=>{
     }
 }
 
-export {getAll,createTask,getAllTasks,getSpecificTask,updateTask,delteTask}
+module.exports={getAll,createTask,getAllTasks,getSpecificTask,updateTask,delteTask}

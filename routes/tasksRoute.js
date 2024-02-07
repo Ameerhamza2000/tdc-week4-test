@@ -1,15 +1,15 @@
-import express from 'express';
-import { createTask, delteTask, getAll, getAllTasks, getSpecificTask, updateTask } from '../controllers/tasksController.js';
-import auth from '../middlewares/auth.js';
+const express =require('express');
+const { createTask, delteTask, getAll, getAllTasks, getSpecificTask, updateTask } =require ('../controllers/tasksController.js');
+const auth =require ('../middlewares/auth');
 
 // validation middleware
-import {taskvalidation} from '../middlewares/inputValidation.js';
+const {taskvalidation} =require('../middlewares/inputValidation.js');
 
 const router=express.Router();
 
 // get all tasks 
 
-router.get('/',getAll)
+router.get('/',getAll);
 
 // following endpoints are for a specific user or logged in  user
 
@@ -23,4 +23,4 @@ router.delete('/:id',auth, delteTask);
 
 router.put('/:id',auth,  taskvalidation, updateTask);
  
-export default router;
+module.exports= router;

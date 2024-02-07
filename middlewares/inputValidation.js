@@ -1,4 +1,4 @@
-import Joi from 'joi';
+const Joi= require('joi');
 
 // task input validation
 const taskvalidation=(req,res,next)=>{
@@ -12,7 +12,7 @@ const taskvalidation=(req,res,next)=>{
     const result=Joi.validate(req.body,schema);
 
     if(result.error){
-        return res.status(400).send(result.error.details[0].message);
+        return res.status(400).json({message:result.error.details[0].message});
     }
 
     next();
@@ -58,4 +58,4 @@ const signupValidation=(req,res,next)=>{
 
 }
 
-export  {taskvalidation,loginValidation,signupValidation};
+module.exports= {taskvalidation,loginValidation,signupValidation};
